@@ -1,0 +1,19 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "run",
+            "type": "shell",
+            "command": "dotnet run --project project/Game/Game.csproj",
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "dotnet build project/DungeonWorld.sln",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
