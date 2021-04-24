@@ -113,22 +113,17 @@ namespace Automata.Controllers
         /// <param name="viewId">View ID</param>
         public static void SwitchView(int windowId, int viewId)
         {
-            View view;
-
             ValidateWindowId(windowId);
             ValidateViewId(viewId);
 
             // hide old view
             if (windows[windowId].Content != null)
             {
-                view = (View)windows[windowId].Content;
-                view.OnHide();
+                HideView(windowId, viewId);
             }
 
             // show new view
-            windows[windowId].Content = views[viewId];
-            view = (View)windows[windowId].Content;
-            view.OnShow();
+            ShowView(windowId, viewId);
         }
 
         /// <summary>
@@ -143,6 +138,19 @@ namespace Automata.Controllers
         }
 
         /// <summary>
+        /// Show the window
+        /// </summary>
+        /// <param name="windowId">Window ID</param>
+        public static void ShowView(int windowId, int viewId)
+        {
+            ValidateWindowId(windowId);
+
+            windows[windowId].Content = views[viewId];
+            View view = (View)windows[windowId].Content;
+            view.OnShow();
+        }
+
+        /// <summary>
         /// Hide the window
         /// </summary>
         /// <param name="windowId">Window ID</param>
@@ -151,6 +159,24 @@ namespace Automata.Controllers
             ValidateWindowId(windowId);
             windows[windowId].OnHide();
             windows[windowId].Hide();
+        }
+
+        /// <summary>
+        /// Hide the window
+        /// </summary>
+        /// <param name="windowId">Window ID</param>
+        public static void HideView(int windowId, int viewId)
+        {
+            ValidateWindowId(windowId);
+            View view = (View)windows[windowId].Content;
+
+            if (view == null)
+            {
+                // no view assigned
+                return;
+            }
+
+            view.OnHide();
         }
 
         /// <summary>
