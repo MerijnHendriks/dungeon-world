@@ -1,5 +1,7 @@
 ﻿/* Tile.cs
- * Author: Merijn Hendriks
+ * Authors: 
+ * - Merijn Hendriks
+ * - Shaquille Louisa
  * License: NCSA
  */
 
@@ -9,7 +11,7 @@ namespace RPG.Models
 {
     public class Tile
     {
-        public int TileType;
-        public Vector2 Position;
+        public int TileType;        // type of tile
+        public Vector2 Position;    // world position
     }
 }
