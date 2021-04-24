@@ -1,5 +1,7 @@
 ﻿using System;
-using Automata;
+using Automata.Models;
+using Automata.Controllers;
+using Automata.Utils;
 
 namespace Game
 {
@@ -16,7 +18,7 @@ namespace Game
             };
 
             // register windows
-            WindowManager.AddWindow("testwindow", testWindow);
+            WindowController.AddWindow("testwindow", testWindow);
 
             // start application
             _ = new App("testwindow");

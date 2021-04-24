@@ -5,7 +5,7 @@
 
 using System.Diagnostics;
 
-namespace Automata
+namespace Automata.Utils
 {
     public enum ELogLevel
     {

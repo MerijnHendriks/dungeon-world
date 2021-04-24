@@ -5,15 +5,16 @@
 
 using System;
 using System.Collections.Generic;
+using Automata.Models;
 
-namespace Automata
+namespace Automata.Controllers
 {
-    public static class WindowManager
+    public static class WindowController
     {
         private static Dictionary<string, Window> windows;
         private static Dictionary<string, View> views;
 
-        static WindowManager()
+        static WindowController()
         {
             windows = new Dictionary<string, Window>();
             views = new Dictionary<string, View>();

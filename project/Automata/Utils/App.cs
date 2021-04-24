@@ -4,14 +4,15 @@
  */
 
 using System.Windows;
+using Automata.Controllers;
 
-namespace Automata
+namespace Automata.Utils
 {
     public class App : Application
     {
         public App(string windowId)
         {
-            WindowManager.ShowWindow(windowId);
+            WindowController.ShowWindow(windowId);
             Run();
         }
     }

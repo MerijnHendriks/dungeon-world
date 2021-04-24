@@ -1,6 +1,11 @@
-﻿using System.Windows.Controls;
+﻿/* View.cs
+ * Author: Merijn Hendriks
+ * License: NCSA
+ */
 
-namespace Automata
+using System.Windows.Controls;
+
+namespace Automata.Models
 {
     public class View : UserControl
     {

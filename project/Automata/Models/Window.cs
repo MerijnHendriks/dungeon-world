@@ -3,7 +3,7 @@
  * License: NCSA
  */
 
-namespace Automata
+namespace Automata.Models
 {
     public class Window : System.Windows.Window
     {

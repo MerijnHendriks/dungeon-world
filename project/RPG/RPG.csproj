@@ -4,12 +4,10 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
-    <StartupObject>Game.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Automata\Automata.csproj" />
-    <ProjectReference Include="..\RPG\RPG.csproj" />
   </ItemGroup>
 
 </Project>
