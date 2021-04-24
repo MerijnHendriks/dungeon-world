@@ -3,7 +3,7 @@
  * License: NCSA
  */
 
-namespace RPG
+namespace RPG.Models
 {
     public class Stats
     {

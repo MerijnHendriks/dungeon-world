@@ -5,7 +5,7 @@
 
 using Automata.Models;
 
-namespace RPG
+namespace RPG.Models
 {
     public class Tile
     {
