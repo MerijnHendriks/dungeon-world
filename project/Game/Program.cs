@@ -11,10 +11,11 @@ namespace Game
         public static void Main(string[] args)
         {
             // register windows
-            WindowController.AddWindow("testwindow", new TestWindow());
+            int windowId = (int)EWindow.TestWindow;
+            WindowController.AddWindow(windowId, new TestWindow());
 
             // start application
-            _ = new App("testwindow");
+            _ = new App(windowId);
         }
     }
 }
