@@ -11,26 +11,21 @@ namespace Automata.Controllers
 {
     public static class WindowController
     {
-        private static Dictionary<string, Window> windows;
-        private static Dictionary<string, View> views;
+        private static Dictionary<int, Window> windows;
+        private static Dictionary<int, View> views;
 
         static WindowController()
         {
-            windows = new Dictionary<string, Window>();
-            views = new Dictionary<string, View>();
+            windows = new Dictionary<int, Window>();
+            views = new Dictionary<int, View>();
         }
 
         /// <summary>
         /// Validate window id
         /// </summary>
         /// <param name="windowId">Window ID</param>
-        private static void ValidateWindowId(string windowId)
+        private static void ValidateWindowId(int windowId)
         {
-            if (string.IsNullOrWhiteSpace(windowId))
-            {
-                throw new Exception("id is null");
-            }
-
             if (!windows.ContainsKey(windowId))
             {
                 throw new Exception($"window with id {windowId} not found");
@@ -41,13 +36,8 @@ namespace Automata.Controllers
         /// Validate view id
         /// </summary>
         /// <param name="viewId">View ID</param>
-        private static void ValidateViewId(string viewId)
+        private static void ValidateViewId(int viewId)
         {
-            if (string.IsNullOrWhiteSpace(viewId))
-            {
-                throw new Exception("id is null");
-            }
-
             if (!views.ContainsKey(viewId))
             {
                 throw new Exception($"view with id {viewId} not found");
@@ -59,13 +49,8 @@ namespace Automata.Controllers
         /// </summary>
         /// <param name="windowId">Window ID</param>
         /// <param name="window">Window instance</param>
-        public static void AddWindow(string windowId, Window window)
+        public static void AddWindow(int windowId, Window window)
         {
-            if (string.IsNullOrWhiteSpace(windowId))
-            {
-                throw new Exception("id is null");
-            }
-
             if (windows.ContainsKey(windowId))
             {
                 throw new Exception($"id {windowId} is already registered");
@@ -84,13 +69,8 @@ namespace Automata.Controllers
         /// </summary>
         /// <param name="viewId">View ID</param>
         /// <param name="window">View instance</param>
-        public static void AddView(string viewId, View view)
+        public static void AddView(int viewId, View view)
         {
-            if (string.IsNullOrWhiteSpace(viewId))
-            {
-                throw new Exception("id is null");
-            }
-
             if (windows.ContainsKey(viewId))
             {
                 throw new Exception($"id {viewId} is already registered");
@@ -109,7 +89,7 @@ namespace Automata.Controllers
         /// </summary>
         /// <param name="windowId">Window ID</param>
         /// <returns>Window instance</returns>
-        public static Window GetWindow(string windowId)
+        public static Window GetWindow(int windowId)
         {
             ValidateWindowId(windowId);
             return windows[windowId];
@@ -120,7 +100,7 @@ namespace Automata.Controllers
         /// </summary>
         /// <param name="viewId">View ID</param>
         /// <returns>View instance</returns>
-        public static View GetView(string viewId)
+        public static View GetView(int viewId)
         {
             ValidateViewId(viewId);
             return views[viewId];
@@ -131,7 +111,7 @@ namespace Automata.Controllers
         /// </summary>
         /// <param name="windowId">Window ID</param>
         /// <param name="viewId">View ID</param>
-        public static void SwitchView(string windowId, string viewId)
+        public static void SwitchView(int windowId, int viewId)
         {
             View view;
 
@@ -155,7 +135,7 @@ namespace Automata.Controllers
         /// Show the window
         /// </summary>
         /// <param name="windowId">Window ID</param>
-        public static void ShowWindow(string windowId)
+        public static void ShowWindow(int windowId)
         {
             ValidateWindowId(windowId);
             windows[windowId].OnShow();
@@ -166,7 +146,7 @@ namespace Automata.Controllers
         /// Hide the window
         /// </summary>
         /// <param name="windowId">Window ID</param>
-        public static void HideWindow(string windowId)
+        public static void HideWindow(int windowId)
         {
             ValidateWindowId(windowId);
             windows[windowId].OnHide();
@@ -177,7 +157,7 @@ namespace Automata.Controllers
         /// Close the window
         /// </summary>
         /// <param name="windowId">Window ID</param>
-        public static void CloseWindow(string windowId)
+        public static void CloseWindow(int windowId)
         {
             ValidateWindowId(windowId);
             windows[windowId].OnClose();

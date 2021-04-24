@@ -10,7 +10,7 @@ namespace Automata.Utils
 {
     public class App : Application
     {
-        public App(string windowId)
+        public App(int windowId)
         {
             WindowController.ShowWindow(windowId);
             Run();
