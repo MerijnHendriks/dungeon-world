@@ -18,6 +18,7 @@ namespace Automata.Utils
 
     public static class Log
     {
+        private static string filepath = "./debug.log";
         private static ELogLevel mode;
 
         static Log()
@@ -34,7 +35,7 @@ namespace Automata.Utils
         {
             if ((int)level >= (int)mode)
             {
-                Trace.WriteLine(text);
+                VFS.WriteTextFile(filepath, text);
             }
         }
 
