@@ -1,8 +1,11 @@
 ﻿/* Log.cs
- * Author: Merijn Hendriks
+ * Authors: 
+ * - Merijn Hendriks
+ * - Shaquille Louisa
  * License: NCSA
  */
 
+using System;
 using System.Diagnostics;
 
 namespace Automata.Utils
@@ -20,10 +23,13 @@ namespace Automata.Utils
     {
         private static string filepath = "./debug.log";
         private static ELogLevel mode;
+        private static TraceListener listener;
 
         static Log()
         {
             mode = ELogLevel.Debug;
+            listener = new DelimitedListTraceListener(filepath);   
+            Trace.Listeners.Add(listener);  
         }
 
         /// <summary>
@@ -35,7 +41,8 @@ namespace Automata.Utils
         {
             if ((int)level >= (int)mode)
             {
-                VFS.WriteTextFile(filepath, text);
+                Trace.WriteLine(text);
+                Trace.Flush();
             }
         }
 
